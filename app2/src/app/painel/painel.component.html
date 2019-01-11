@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="jumbotron">
+    <!--LINHA COM O PROGRESSO E TENTATIVAS-->
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- PROGRESSO -->
+            <app-progresso> </app-progresso>
+        </div>
+        <div class="col-sm-6">
+          <!-- TENTATIVAS -->
+          <div class="d-flex justify-content-end">
+             <app-tentativas></app-tentativas>
+          </div>
+        </div>
+      <!--LINHA COM A SOLICITAÇÃO / FRASE PARA TRADUÇÃO -->
+        <div class="row col-sm-12">
+          <div class="col">
+           <p class="text-left">Traduza esta frase:</p>
+           <p class="text-left"> How are you? </p>
+           <!-- BOX -->
+           <div class="form-group">
+             <textarea class="form-control" rows="3" ></textarea>
+           </div>
+          </div>
+        </div>
+        <!--LINHA COM O BOTÃO VERIFICAR -->
+        <div class="row col-sm-12">
+          <div class="col">
+             <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary"> Verificar </button>
+            </div>
+          </div>
+        </div>
+
+     </div>
+  </div>
+</div>
