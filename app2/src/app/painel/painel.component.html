@@ -15,11 +15,14 @@
       <!--LINHA COM A SOLICITAÇÃO / FRASE PARA TRADUÇÃO -->
         <div class="row col-sm-12">
           <div class="col">
-           <p class="text-left">Traduza esta frase:</p>
-           <p class="text-left"> How are you? </p>
+           <p class="text-left">{{instrucao}}</p>
+           <p class="text-left"> {{rodadaFrase.fraseEng}} </p>
            <!-- BOX -->
            <div class="form-group">
-             <textarea class="form-control" rows="3" ></textarea>
+             <textarea
+             class="form-control"
+              rows="3"
+              (input)="atualizaResposta($event)" ></textarea>
            </div>
           </div>
         </div>
@@ -27,7 +30,10 @@
         <div class="row col-sm-12">
           <div class="col">
              <div class="d-flex justify-content-end">
-              <button type="button" class="btn btn-primary"> Verificar </button>
+              <button type="button"
+                      class="btn btn-primary"
+                      (click)="verificarResposta()"
+                      > Verificar </button>
             </div>
           </div>
         </div>
