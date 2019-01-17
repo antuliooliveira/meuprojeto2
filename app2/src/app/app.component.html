@@ -4,5 +4,33 @@
     Welcome to {{ title }}!
   </h1>
   <app-topo></app-topo>
-<app-painel></app-painel>
-<router-outlet></router-outlet>
+  <div *ngIf="jogoEmAndamento; else fimDeJogo" >
+  <app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+  </div>
+<!--<app-painel></app-painel>-->
+<ng-template #fimDeJogo>
+ <!--Caiu no ELSE -->
+ <div *ngIf="tipoEncerramento ==='derrota'; else fimDeJogoVitoria" class="container"
+       style="margin-top: 50px">
+ <div class="row">
+  <div class="col">
+    <h3 style="color: red"> FIM DE JOGO, Infelizmente você perdeu:S</h3>
+    <button class= "btn btn-primary" (click)="reiniciarJogo"> REINICIAR </button>
+  </div>
+</div>
+</div>
+</ng-template>
+
+<ng-template #fimDeJogoVitoria>
+<!--Caiu no ELSE 2 -->
+<div class="container" style="margin-top: 50px">
+<div class="row">
+<div class="col">
+<h3 style="color: blue"> FIM DE JOGO, Parabéns você Venceu:S</h3>
+<button class= "btn btn-primary" (click)="reiniciarJogo"> REINICIAR </button>
+</div>
+</div>
+</div>
+</ng-template>
+<!--<router-outlet></router-outlet> -->
+

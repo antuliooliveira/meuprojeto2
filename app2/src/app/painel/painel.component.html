@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-sm-6">
           <!-- PROGRESSO -->
-            <app-progresso> </app-progresso>
+            <app-progresso [progresso]= "progresso"> </app-progresso>
         </div>
         <div class="col-sm-6">
           <!-- TENTATIVAS -->
           <div class="d-flex justify-content-end">
-             <app-tentativas></app-tentativas>
+             <app-tentativas [tentativas]="tentativas"></app-tentativas>
           </div>
         </div>
       <!--LINHA COM A SOLICITAÇÃO / FRASE PARA TRADUÇÃO -->
@@ -22,7 +22,7 @@
              <textarea
              class="form-control"
               rows="3"
-              (input)="atualizaResposta($event)" ></textarea>
+              (input)="atualizaResposta($event)" [value]="resposta"></textarea>
            </div>
           </div>
         </div>
