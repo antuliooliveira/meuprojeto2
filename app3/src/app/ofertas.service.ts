@@ -1,5 +1,6 @@
 import {Oferta} from './shared/oferta.model';
 import { promise } from 'protractor';
+import { resolve } from 'url';
 export class OfertasService {
 public ofertas: Array<Oferta> = [
 	{
@@ -58,11 +59,32 @@ public getOfertas(): Array<Oferta> {
 public getOfertas2(): Promise<Oferta[]> {
   return new Promise((resolve, reject) => {
   // algum tipo de processamento, que ao finalizar, chama a função resolve ou reject
-  console.log ('passei por aqui');
-  let deu_certo = false;
-  if (deu_certo) {resolve(this.ofertas)}
-  else           { reject({codigo_erro:404, mensagem_erro:'Servidor não encontrado'} )}
+  // console.log ('passei por aqui');
+  let deu_certo = true;
+  if (deu_certo) {
+    setTimeout(()=> resolve(this.ofertas), 3000)
+  }
+  else { reject({codigo_erro:404, mensagem_erro:'Servidor não encontrado XYZ'} )}
 
 
 
-   })} }
+   })
+  .then((ofertas: Oferta[])=> {
+    // fazer alguma tratativa Ex: Nova consulta ao Banco de Dados
+    console.log ('primeiro then')
+    return ofertas
+  })
+  .then((ofertas: Oferta[])=> {
+    // fazer alguma tratativa
+    console.log ('segundo then')
+    return new Promise((resolve2, reject2)=>{
+      setTimeout(()=>{resolve2(ofertas)},3000)
+    })
+  })
+  .then ((ofertas: Oferta[])=>{
+    console.log('terceiro THEN executado após + 3 segundos após promisse')
+     return ofertas
+  })
+
+
+} }
