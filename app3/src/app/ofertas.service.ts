@@ -57,7 +57,7 @@ public getOfertas(): Array<Oferta> {
     return this.ofertas;
 }
 public getOfertas2(): Promise<Oferta[]> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve , reject) => {
   // algum tipo de processamento, que ao finalizar, chama a função resolve ou reject
   // console.log ('passei por aqui');
   let deu_certo = true;
