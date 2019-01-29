@@ -1,7 +1,11 @@
+import {Http} from '@angular/http';
+import {Injectable, inject} from '@angular/core';
 import {Oferta} from './shared/oferta.model';
 import { promise } from 'protractor';
 import { resolve } from 'url';
+@Injectable()
 export class OfertasService {
+constructor(private http: Http) {}
 public ofertas: Array<Oferta> = [
 	{
 		id: 1,
