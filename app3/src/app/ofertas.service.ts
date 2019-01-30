@@ -1,12 +1,14 @@
-import {Http} from '@angular/http';
 import {Injectable, inject} from '@angular/core';
 import {Oferta} from './shared/oferta.model';
 import { promise } from 'protractor';
 import { resolve } from 'url';
+import { Http } from '@angular/http';
+//import '../../node_modules/rxjs/operator/toPromise';
+
 @Injectable()
 export class OfertasService {
 constructor(private http: Http) {}
-public ofertas: Array<Oferta> = [
+/*public ofertas: Array<Oferta> = [
 	{
 		id: 1,
 		categoria: 'restaurante XYZ',
@@ -56,11 +58,17 @@ public ofertas: Array<Oferta> = [
 		]
 	}
 ]
+*/
+public getOfertas(): Promise <Oferta[]> {
+  /* Efetuar uma requisição http e retornar uma "promise" Oferta[]
+    return this.ofertas;*/
+    return this.http.get('http://localhost:3000/ofertas')
+    .toPromise()
+    .then((resposta: any) => resposta.jason())
+   // return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json()); }
 
-public getOfertas(): Array<Oferta> {
-    return this.ofertas;
 }
-public getOfertas2(): Promise<Oferta[]> {
+/* public getOfertas2(): Promise<Oferta[]> {
   return new Promise((resolve , reject) => {
   // algum tipo de processamento, que ao finalizar, chama a função resolve ou reject
   // console.log ('passei por aqui');
@@ -91,4 +99,6 @@ public getOfertas2(): Promise<Oferta[]> {
   })
 
 
-} }
+}*/
+
+}
