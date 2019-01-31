@@ -61,11 +61,11 @@ constructor(private http: Http) {}
 */
 public getOfertas(): Promise <Oferta[]> {
   /* Efetuar uma requisição http e retornar uma "promise" Oferta[]
-    return this.ofertas;*/
+    return this.ofertas;
     return this.http.get('http://localhost:3000/ofertas')
     .toPromise()
-    .then((resposta: any) => resposta.jason())
-   // return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json()); }
+    .then((resposta: any) => resposta.jason())*/
+    return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json());
 
 }
 /* public getOfertas2(): Promise<Oferta[]> {
