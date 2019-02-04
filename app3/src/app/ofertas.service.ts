@@ -66,9 +66,9 @@ constructor(private http: Http) {}
 public getOfertas(): Promise <Oferta[]> {
   /* Efetuar uma requisição http e retornar uma "Promise" com um array de Oferta[]*/
    // return this.ofertas;
-		return this.http.get('http://localhost:3000/ofertas')
+		return this.http.get('http://localhost:3000/ofertas?destaque=true')
 		.toPromise()
-    .then((resposta: any) => resposta.jason());
+    .then((resposta: any) => resposta.json());
    // return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json());
 
 }
