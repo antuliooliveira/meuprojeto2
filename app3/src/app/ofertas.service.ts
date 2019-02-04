@@ -3,7 +3,11 @@ import {Oferta} from './shared/oferta.model';
 import { promise } from 'protractor';
 import { resolve } from 'url';
 import { Http } from '@angular/http';
-//import '../../node_modules/rxjs/operator/toPromise';
+import { HttpModule } from '@angular/http';
+//import { HttpClientModule } from '@angular/common/http';
+//import {Observable} from 'rxjs';
+import '../../node_modules/rxjs/add/operator/toPromise';
+//import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class OfertasService {
@@ -57,15 +61,15 @@ constructor(private http: Http) {}
 			{url: '/assets/ofertas/3/img6.jpg'}
 		]
 	}
-]
-*/
+]*/
+
 public getOfertas(): Promise <Oferta[]> {
-  /* Efetuar uma requisição http e retornar uma "promise" Oferta[]
-    return this.ofertas;
-    return this.http.get('http://localhost:3000/ofertas')
-    .toPromise()
-    .then((resposta: any) => resposta.jason())*/
-    return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json());
+  /* Efetuar uma requisição http e retornar uma "promise" Oferta[]*/
+   // return this.ofertas;
+		return this.http.get('http://localhost:3000/ofertas')
+		.toPromise()
+    .then((resposta: any) => resposta.jason());
+   // return this.http.get ('http://localhost:3000/ofertas').toPromise().then ( (resposta: any) => resposta.json());
 
 }
 /* public getOfertas2(): Promise<Oferta[]> {
