@@ -1,6 +1,9 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+
+import { ROUTES } from './app.routes';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,9 +25,9 @@ import { DiversaoComponent } from './diversao/diversao.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
-    //HttpClientModule
-     ],
+    HttpModule,
+    RouterModule.forRoot(ROUTES)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
